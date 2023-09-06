@@ -3,6 +3,7 @@ import { Logo } from "./Logo";
 import { NavLink } from "react-router-dom";
 import { SearchBar } from "./SearchBar";
 import { Profile } from "./Profile";
+import { ReactComponent as HomeIcon } from "../../assets/home.svg";
 
 export const Navbar = () => {
   return (
@@ -11,7 +12,8 @@ export const Navbar = () => {
         <Logo />
       </NavLink>
       <ul className="nav-links">
-        <li>
+        <li className="link-item">
+          <HomeIcon />
           <NavLink to="/">HOME</NavLink>
         </li>
 
@@ -23,8 +25,8 @@ export const Navbar = () => {
           <NavLink to="/library">LIBRARY</NavLink>
         </li>
       </ul>
-      <SearchBar/>
-      <Profile/>
+      <SearchBar />
+      <Profile />
     </nav>
   );
 };
