@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getHeaderWithProjectIDAndBody } from "../utils/configs";
 
 export const SignIn = () => {
   const [userInfo, setUserInfo] = useState({
@@ -7,15 +9,32 @@ export const SignIn = () => {
     password: "",
   });
 
-  const navigate =  useNavigate()
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
   };
 
+  const signIn = async (userInfo) => {
+    const headerConfigs = getHeaderWithProjectIDAndBody();
+    try{
+        const res = await axios.post(
+            "https://academics.newtonschool.co/api/v1/user/login",
+            {
+              ...userInfo,
+              appType: "music",
+            },
+            headerConfigs
+          );
+          console.log('response', res);
+    }catch(err){
+        console.log(err);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("userInfo", userInfo);
+    signIn(userInfo);
   };
 
   return (
@@ -44,7 +63,7 @@ export const SignIn = () => {
         <input type="submit" value="Sign in" />
       </form>
       <p>Not a User already ?</p>
-      <button onClick={() => navigate('/signup')}>SignUp here !</button>
+      <button onClick={() => navigate("/signup")}>SignUp here !</button>
     </section>
   );
 };

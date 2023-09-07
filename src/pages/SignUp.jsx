@@ -13,20 +13,46 @@ export const SignUp = () => {
     setUserInfo({ ...userInfo, [name]: value });
   };
 
-  const sendCreateUserReq = async (body) => {
-    const config = getHeaderWithProjectIDAndBody(body);
+  const signUp = async (userInfo) => {
+    userInfo.appType = "music";
 
-    const res = await axios.post(
-      "https://academics.newtonschool.co/api/v1/user/signup",
-      config
-    );
-    console.log("res", res);
+    const headerConfig = getHeaderWithProjectIDAndBody();
+    try {
+      const res = await axios.post(
+        "https://academics.newtonschool.co/api/v1/user/signup",
+        userInfo,
+        headerConfig
+      );
+      console.log("res", res);
+      if(res.data.token){
+        sessionStorage.setItem("authToken", res.data.token);
+        sessionStorage.setItem("userInfo", JSON.stringify(res.data.data.user));
+      }
+      
+    } catch (err) {
+        if(err){
+            console.log(err.response.data.message);
+        }
+    }
+
+    // using fetch
+    // const config = {
+    //     method: 'POST',
+    //     headers: {
+    //         projectId: "ihgyfmp0d322",
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(userInfo)
+    // }
+
+    // const res = await fetch('https://academics.newtonschool.co/api/v1/user/signup', config);
+    // const data = await res.json()
+    // console.log('data', data);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("userInfo", userInfo);
-    sendCreateUserReq({ ...userInfo, appType: "music" });
+    signUp(userInfo);
   };
 
   return (

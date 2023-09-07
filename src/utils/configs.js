@@ -6,19 +6,24 @@ export const getHeaderWithProjectId = () => {
   };
 };
 
-export const getHeaderWithProjectIDAndBody = (body) => {
-    console.log('body', JSON.stringify(body));
+export const getHeaderWithProjectIDAndBody = () => {
   return {
     headers: { projectId: PROJECT_ID, "Content-Type": "application/json" },
-    body: JSON.stringify(body)
   };
 };
 
-export const getAuthHeaderConfig = (token) => {
-  return {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      projectID: PROJECT_ID,
-    },
-  };
+export const getAuthHeaderConfig = () => {
+  const token = sessionStorage.getItem("authToken");
+  if (token) {
+    return {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        projectID: PROJECT_ID,
+      },
+    };
+  } else {
+    return {
+      error: "user not logged in",
+    };
+  }
 };

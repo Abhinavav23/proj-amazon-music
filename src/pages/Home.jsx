@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { getHeaderWithProjectId } from "../utils/configs";
 import { MusicCard } from "../components/music/MusicCard";
+import { MusicProvider } from "../Provider/MusicProvider";
+import { MusicPlayer } from "../components/music/MusicPlayer";
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +33,15 @@ export const Home = () => {
   return isLoading ? (
     <div>Loading ...</div>
   ) : (
-    musicsList &&
-      musicsList.map((music, i) => <MusicCard key={i} {...music} />)
+    musicsList && (
+      <MusicProvider>
+        <section className="musicList-container">
+          {musicsList.map((music, i) => (
+            <MusicCard key={i} {...music} />
+          ))}
+        </section>
+        <MusicPlayer/>
+      </MusicProvider>
+    )
   );
 };
