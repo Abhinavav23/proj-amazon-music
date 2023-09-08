@@ -84,4 +84,21 @@ a{
   padding-left: 1rem;
 }
 
+.play-pause{
+  height: 3rem;
+  width: 3rem;
+  vertical-align: center;
+  border-radius: 2rem;
+  border: none;
+}
+
+.artist-list{
+  font-size: 0.75rem;
+  color: #393939;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* overflow-x: scroll */
