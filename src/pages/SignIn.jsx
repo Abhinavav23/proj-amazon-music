@@ -48,8 +48,6 @@ export const SignIn = () => {
           value={userInfo.email}
           onChange={handleChange}
         />
-        <br />
-        <br />
         <label htmlFor="password">Password: </label>
         <input
           type="password"
@@ -58,8 +56,6 @@ export const SignIn = () => {
           value={userInfo.password}
           onChange={handleChange}
         />
-        <br />
-        <br />
         <input type="submit" value="Sign in" />
       </form>
       <p>Not a User already ?</p>

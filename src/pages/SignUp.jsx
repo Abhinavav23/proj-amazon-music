@@ -65,8 +65,6 @@ export const SignUp = () => {
         value={userInfo.name}
         onChange={handleChange}
       />
-      <br />
-      <br />
       <label htmlFor="email">Email: </label>
       <input
         type="text"
@@ -75,8 +73,6 @@ export const SignUp = () => {
         value={userInfo.email}
         onChange={handleChange}
       />
-      <br />
-      <br />
       <label htmlFor="password">Password: </label>
       <input
         type="password"
@@ -85,8 +81,6 @@ export const SignUp = () => {
         value={userInfo.password}
         onChange={handleChange}
       />
-      <br />
-      <br />
       <input type="submit" value="Sign Up" />
     </form>
   );

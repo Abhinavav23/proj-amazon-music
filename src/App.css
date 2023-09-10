@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -19,7 +21,7 @@ a{
 
 .navbar{
   display: flex;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #b9b9b9;
   align-items: center;
   justify-content: space-evenly;
@@ -27,16 +29,19 @@ a{
   width: 100%;
   top: 0;
   z-index: 10;
+  background-color: #1b1b1b;
 }
 
 .nav-links{
   display: flex;
   gap: 2rem;
   list-style: none;
+  
 }
 
 .profile{
   position: relative;
+  cursor: pointer;
 }
 .profile-icon{
   background-color: #fff;
@@ -48,21 +53,43 @@ a{
 .link-item{
   display: flex;
   gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.125rem;
+  &:hover{
+    background-color: rgb(0, 179, 255);
+    cursor: pointer;
+  }
 }
 
 .auth-modal{
-  width: 8rem;
+  padding: 1rem;
+  margin: 0.25rem;
+  width: 10rem;
   background-color: #ddd;
   height: 5rem;
   position: absolute;
   right: 10px;
+  border-radius: 0.25rem;
+  background-color: #393939;
+  border: 1px solid #b9b9b9
+}
+
+.signin-btn{
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: rgb(0, 179, 255);
+  color: #fff;
 }
 
 #search{
-  padding: 0.75rem 1rem;
-  border-radius: 2rem;
   border: none;
-  width: 100%
+  width: 100%;
+  padding: 0.25rem;
+  &:focus{
+    outline: none;
+  }
 }
 .musicList-container{
   display: flex;
@@ -101,4 +128,21 @@ a{
   text-overflow: ellipsis;
 }
 
+input{
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: none;
+  &:focus{
+    outline: none;
+    box-shadow: 0 0 0.75rem rgba(0, 179, 255, 0.759);
+  }
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
 /* overflow-x: scroll */

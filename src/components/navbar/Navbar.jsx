@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import { SearchBar } from "./SearchBar";
 import { Profile } from "./Profile";
 import { ReactComponent as HomeIcon } from "../../assets/home.svg";
+import { ReactComponent as PodcastIcon } from "../../assets/podcast.svg";
+import { ReactComponent as HeadPhoneIcon } from "../../assets/headphone.svg";
 
 export const Navbar = () => {
   return (
@@ -17,11 +19,13 @@ export const Navbar = () => {
           <NavLink to="/">HOME</NavLink>
         </li>
 
-        <li>
+        <li className="link-item">
+          <PodcastIcon />
           <NavLink to="/podcasts">PODCASTS</NavLink>
         </li>
 
-        <li>
+        <li className="link-item">
+          <HeadPhoneIcon />
           <NavLink to="/library">LIBRARY</NavLink>
         </li>
       </ul>

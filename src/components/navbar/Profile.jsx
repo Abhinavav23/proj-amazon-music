@@ -35,7 +35,7 @@ export const Profile = () => {
 
       {showModal && (
         <section className="auth-modal">
-          <button onClick={() => {
+          <button className="signin-btn" onClick={() => {
             navigate('/signin')
           }}>Sign-in</button>
         </section>
