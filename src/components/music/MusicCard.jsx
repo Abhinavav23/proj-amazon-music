@@ -4,7 +4,7 @@ import { useMusic } from "../../Provider/MusicProvider";
 
 export const MusicCard = (props) => {
   const { setSelectedMusic } = useMusic();
-  const { title, thumbnail, artist, audio_url } = props;
+  const { title, thumbnail, artist } = props;
   const artistList = artist.map((item) => item.name).join(" & ");
   return (
     <section

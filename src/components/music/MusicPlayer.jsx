@@ -7,7 +7,7 @@ export const MusicPlayer = () => {
   const { selectedMusic } = useMusic();
   const audioRef = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
-  const [start, setStart] = useState("0");
+  const [start] = useState("0");
   const [end, setEnd] = useState("0");
 
   const { thumbnail, title, artist, audio_url } = selectedMusic;
